@@ -1,3 +1,28 @@
 @import "tailwindcss";
+@import 'remixicon/fonts/remixicon.css';
 
 
+@keyframes soft-ripple {
+    0% {
+      transform: scale(0.9);
+      opacity: 1; /* Start fully opaque for a 'charged' look */
+      border-width: 3px; /* Start thicker for a bigger impact */
+    }
+    70% {
+      transform: scale(1.8);
+      opacity: 0.2; /* Fade out more dramatically */
+      border-width: 1px;
+    }
+    100% {
+      transform: scale(2.2);
+      opacity: 0;
+      border-width: 0px;
+    }
+  }
+
+  .smooth-ripple {
+    animation: soft-ripple 2.5s ease-out infinite; /* Changed to ease-out for a faster start */
+    border-style: solid;
+    border-color: currentColor;
+    background-color: transparent !important;
+  }
