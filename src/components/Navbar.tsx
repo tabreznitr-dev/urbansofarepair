@@ -49,7 +49,7 @@ function Navbar() {
 
         {/* Phone button */}
         <a href="tel:+917846940025">
-            <button className="relative w-14 h-14 bg-[#3396D3] rounded-full shadow-xl flex items-center justify-center">
+            <button className="relative w-14 h-14 bg-[#33A1E0] rounded-full shadow-xl flex items-center justify-center">
                 <i className="text-2xl text-white ri-phone-fill"></i>
             </button>
         </a>
