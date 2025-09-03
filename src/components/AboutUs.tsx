@@ -68,14 +68,14 @@ function AboutUs() {
   ];
 
   return (
-    <div id="about" className="md:px-40 py-10">
-      <div className="flex justify-center mt-10 md:mt-30">
+    <div id="about" className="md:px-40 ">
+      <div className="flex justify-center mt-8 md:mt-30">
         <h1 className="text-4xl font-medium opacity-80 border-b-2 border-[#DEB887]">
           About Us
         </h1>
       </div>
 
-      <div className="flex w-full flex-wrap justify-center gap-8 mt-8 p-4">
+      <div className="flex w-full flex-wrap justify-center gap-8 mt-4 p-4">
         {cards.map((card, index) => (
           <AnimatedCard key={index} className="mt-10">
             {/* Floating Icon Badge */}
