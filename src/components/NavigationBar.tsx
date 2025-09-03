@@ -65,8 +65,8 @@ function NavigationBar() {
 
         {/* Phone button */}
         <a href="tel:+917846940025">
-            <button className="relative w-14 h-14 bg-[#33A1E0] rounded-full shadow-xl flex items-center justify-center">
-                <i className="text-2xl text-white ri-phone-fill"></i>
+            <button className="relative w-14 h-14 bg-white  rounded-full shadow-xl flex items-center justify-center">
+                <i className="text-2xl text-blue-500 ri-phone-fill"></i>
             </button>
         </a>
     </div>
@@ -92,7 +92,8 @@ function NavigationBar() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl  text-sand"><i className="ri-sofa-fill"></i>Shagun Sofa</h1>
+            <h1 className="text-xl  text-sand"><i className="ri-sofa-fill"></i>Shagun Sofa
+            <br /><p className="text-white/80 text-[10px]">M3M Cosmopolitan Mall, Gurgaon</p></h1>
           </div>
 
           {/* Desktop Menu */}
