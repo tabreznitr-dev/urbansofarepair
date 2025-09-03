@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @import 'remixicon/fonts/remixicon.css';
 
+@theme inline {
+  --color-primary: #1F2937;
+  --color-accent: #D5B895;
+  --color-highlight: #A67C52;
+  --color-cream: #F5F2EB;
+  --color-sage: #8DA399;
+  --color-terracotta: #C97C5D;
+  --color-charcoal: #1C1C1C;
+  --color-sand: #E6DDC6;
+}
 
 @keyframes soft-ripple {
     0% {

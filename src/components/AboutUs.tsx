@@ -77,7 +77,7 @@ function AboutUs() {
           <AnimatedCard key={index}>
             <div className="flex justify-center text-5xl">
               <h1
-                className={`opacity-75 font-semibold text-[#DEB887] rounded-[50%] bg-gray-500/10 ${card.iconClasses}`}
+                className={`opacity-75 font-semibold text-primary bg-sand  rounded-[50%]  ${card.iconClasses}`}
               >
                 {card.icon}
               </h1>

@@ -23,20 +23,21 @@ function Footer() {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
-      className=" rounded-t-2xl md:mt-30 text-white-80 flex flex-wrap p-4"
+      className=" bg-primary text-white/80 rounded-t-2xl md:mt-30 text-white-80 flex flex-wrap p-4"
     >
       <section>
         {/* About The Brand */}
         <div>
-          <h1 className="text-2xl ">
-            <i className="ri-sofa-fill"></i>Shagun Sofa Repair
+          <h1 className="text-2xl text-sand">
+            <i className="ri-sofa-fill "></i>Shagun Sofa Repair
           </h1>
           <p className="text-[10px] font-normal ">M3M Cosmopolitan Mall, Gurgaon</p>
-          <p className="text-[14px] font-normal  mt-3">
-          Whether you’re reviving an old favorite, designing something completely new, or giving your sofa a stylish fabric upgrade, we make it happen. Since 2012, we’ve been known for quality craftsmanship and timeless comfort.
+          <p className="text-[15px] font-thin   mt-3">
+          Whether you’re reviving an old favorite, designing something completely new, or giving your sofa a stylish fabric upgrade, we 
+            make it happen. Since 2012, we’ve been known for quality craftsmanship and timeless comfort.
           </p>
         </div>
-        <div className="mt-5 flex gap-3 text-3xl ">
+        <div className="mt-5 flex gap-3 text-3xl text-sand">
           {/* social handels  */}
            <i className=" ri-facebook-circle-fill"></i>
          <a href="https://www.instagram.com/farman__ali92/" target="_blank"> <i className="  ri-instagram-fill"></i></a>
@@ -49,8 +50,8 @@ function Footer() {
         {/* Services  Section */}
         <div className="border-t border-[#F5DEB3]/60 w-full ">
           <div className="mt-3 ">
-            <h1 className="text-2xl ">Our Services</h1>
-            <ul className="text-[14px]  mt-3">
+            <h1 className="text-2xl text-sand ">Our Services</h1>
+            <ul className="text-[15px] font-thin  mt-3">
               <li>Sofa Repair</li>
               <li>New Sofa Making</li>
               <li>Chair Repair</li>
@@ -65,21 +66,21 @@ function Footer() {
         {/* Contact Info Section */}
         <div className="border-t  border-[#F5DEB3]/60  w-full ">
           <div className="mt-3 ">
-            <h1 className="text-2xl ">Contact Us</h1>
+            <h1 className="text-2xl text-sand">Contact Us</h1>
             <div>
-              <div className="text-[13px] mt-3">
+              <div className="text-[15px] font-thin  mt-3">
                 <p>
-                  <i className=" text-[18px] ri-map-pin-fill"></i> M3M Cosmopolitan Mall, Gurgaon
+                  <i className="text-sand text-[18px] ri-map-pin-fill"></i> M3M Cosmopolitan Mall, Gurgaon
                 </p>
                 <p>
-                   <a href="tel:+919058304133"><i className=" text-[18px] ri-phone-fill"></i> +91 9058304133 </a>
+                   <a href="tel:+919058304133"><i className="text-sand text-[18px] ri-phone-fill"></i> +91 9058304133 </a>
                 </p>
                 <p>
                   <a href="mailto:shagunsofarepair@gmail.com">
-                  <i className=" text-[18px] ri-mail-fill"></i> shagunsofarepair@gmail.com</a>
+                  <i className="text-sand text-[18px] ri-mail-fill"></i> shagunsofarepair@gmail.com</a>
                 </p>
                 <p>
-                  <i className=" text-[18px] ri-time-fill"></i> Mon-Sun, 9AM - 9PM
+                  <i className="text-sand text-[18px] ri-time-fill"></i> Mon-Sun, 9AM - 9PM
                 </p>
               </div>
             </div>
