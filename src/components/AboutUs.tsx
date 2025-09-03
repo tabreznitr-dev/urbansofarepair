@@ -70,7 +70,7 @@ function AboutUs() {
   return (
     <div id="about" className="md:px-40 py-10">
       <div className="flex justify-center mt-10 md:mt-30">
-        <h1 className="text-4xl font-medium opacity-80 border-b-4 border-[#DEB887]">
+        <h1 className="text-4xl font-medium opacity-80 border-b-2 border-[#DEB887]">
           About Us
         </h1>
       </div>
@@ -81,7 +81,7 @@ function AboutUs() {
             {/* Floating Icon Badge */}
             <div className="absolute -top-8 left-6">
               <div className="w-22 h-22 flex items-center justify-center rounded-full border-2 border-[#DEB887] bg-white shadow-md">
-                <span className={`text-[#DEB887] text-3xl ${card.iconClasses}`}>
+                <span className={`text-[#DEB887] text-4xl ${card.iconClasses}`}>
                   {card.icon}
                 </span>
               </div>
