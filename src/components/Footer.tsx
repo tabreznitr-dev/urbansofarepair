@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 function Footer() {
@@ -7,7 +7,7 @@ function Footer() {
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isInView) {
       controls.start({
         opacity: 1,
@@ -18,85 +18,92 @@ function Footer() {
   }, [isInView, controls]);
 
   return (
-    <motion.div
-     id="contact"
+    <motion.footer
+      id="contact"
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
-      className=" bg-primary text-white/80 rounded-t-2xl md:mt-30 text-white-80 flex flex-wrap p-4"
+      className="bg-primary text-gray-300 rounded-t-2xl md:mt-20 px-6 md:px-16 py-10"
     >
-      <section>
-        {/* About The Brand */}
+      {/* Main Footer Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-700 pb-8">
+        
+        {/* Brand */}
         <div>
-          <h1 className="text-2xl text-sand">
-            <i className="ri-sofa-fill "></i>Shagun Sofa Repair
+          <h1 className="text-xl font-semibold text-[#DEB887] flex items-center gap-2">
+            <i className="ri-sofa-fill"></i> Shagun Sofa Repair
           </h1>
-          <p className="text-[10px] font-normal ">M3M Cosmopolitan Mall, Gurgaon</p>
-          <p className="text-[15px] font-thin   mt-3">
-          Whether you’re reviving an old favorite, designing something completely new, or giving your sofa a stylish fabric upgrade, we 
-            make it happen. Since 2012, we’ve been known for quality craftsmanship and timeless comfort.
+          <p className="text-sm mt-2">M3M Cosmopolitan Mall, Gurgaon</p>
+          <p className="text-sm mt-3 leading-relaxed">
+            Revive, redesign, or upgrade – we bring life back to your sofas with expert repair and craftsmanship trusted since 2012.
           </p>
-        </div>
-        <div className="mt-5 flex gap-3 text-3xl text-sand">
-          {/* social handels  */}
-           <i className=" ri-facebook-circle-fill"></i>
-         <a href="https://www.instagram.com/farman__ali92/" target="_blank"> <i className="  ri-instagram-fill"></i></a>
-          <a href="https://wa.me/919058304133?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service" 
-          target="_blank" rel="noopener noreferrer"> <i className=" ri-whatsapp-fill"></i></a> 
-        </div>
-      </section>
-
-      <section className="w-screen mt-3">
-        {/* Services  Section */}
-        <div className="border-t border-[#F5DEB3]/60 w-full ">
-          <div className="mt-3 ">
-            <h1 className="text-2xl text-sand ">Our Services</h1>
-            <ul className="text-[15px] font-thin  mt-3">
-              <li>Sofa Repair</li>
-              <li>New Sofa Making</li>
-              <li>Chair Repair</li>
-              <li>Bed Design & Repair</li>
-              <li>Same Day Delivery</li>
-            </ul>
+          <div className="flex gap-4 text-2xl mt-4 text-[#DEB887]">
+            <i className="ri-facebook-circle-fill cursor-pointer hover:scale-110 transition" />
+            <a href="https://www.instagram.com/farman__ali92/" target="_blank">
+              <i className="ri-instagram-fill cursor-pointer hover:scale-110 transition" />
+            </a>
+            <a
+              href="https://wa.me/919058304133?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="ri-whatsapp-fill cursor-pointer hover:scale-110 transition" />
+            </a>
           </div>
         </div>
-      </section>
 
-      <section className="w-screen  mt-3">
-        {/* Contact Info Section */}
-        <div className="border-t  border-[#F5DEB3]/60  w-full ">
-          <div className="mt-3 ">
-            <h1 className="text-2xl text-sand">Contact Us</h1>
-            <div>
-              <div className="text-[15px] font-thin  mt-3">
-                <p>
-                  <i className="text-sand text-[18px] ri-map-pin-fill"></i> M3M Cosmopolitan Mall, Gurgaon
-                </p>
-                <p>
-                   <a href="tel:+919058304133"><i className="text-sand text-[18px] ri-phone-fill"></i> +91 9058304133 </a>
-                </p>
-                <p>
-                  <a href="mailto:shagunsofarepair@gmail.com">
-                  <i className="text-sand text-[18px] ri-mail-fill"></i> shagunsofarepair@gmail.com</a>
-                </p>
-                <p>
-                  <i className="text-sand text-[18px] ri-time-fill"></i> Mon-Sun, 9AM - 9PM
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Services */}
+        <div>
+          <h2 className="text-lg font-semibold text-[#DEB887]">Our Services</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li>Sofa Repair</li>
+            <li>New Sofa Making</li>
+            <li>Chair Repair</li>
+            <li>Bed Design & Repair</li>
+            <li>Same Day Delivery</li>
+          </ul>
         </div>
-      </section>
 
-      <section className="w-screen  mt-3">
-        {/* Quick Links Section */}
-        <div className="border-t border-[#F5DEB3]/60  w-full ">
-          <div className="text-center mt-5 mb-5 t text-[13px]">
-            <i className="ri-copyright-line"></i> 2025 Shagun Sofa Repair. All rights reserved.
-          </div>
+        {/* Contact */}
+        <div>
+          <h2 className="text-lg font-semibold text-[#DEB887]">Contact Us</h2>
+          <ul className="mt-3 space-y-3 text-sm">
+            <li className="flex items-center gap-2">
+              <i className="ri-map-pin-fill text-[#DEB887]" /> M3M Cosmopolitan Mall, Gurgaon
+            </li>
+            <li className="flex items-center gap-2">
+              <a href="tel:+919058304133" className="flex items-center gap-2 hover:text-[#DEB887]">
+                <i className="ri-phone-fill text-[#DEB887]" /> +91 9058304133
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <a href="mailto:shagunsofarepair@gmail.com" className="flex items-center gap-2 hover:text-[#DEB887]">
+                <i className="ri-mail-fill text-[#DEB887]" /> shagunsofarepair@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <i className="ri-time-fill text-[#DEB887]" /> Mon-Sun, 9AM - 9PM
+            </li>
+          </ul>
         </div>
-      </section>
-    </motion.div>
+
+        {/* Quick Links */}
+        <div>
+          <h2 className="text-lg font-semibold text-[#DEB887]">Quick Links</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li><a href="#home" className="hover:text-[#DEB887]">Home</a></li>
+            <li><a href="#about" className="hover:text-[#DEB887]">About Us</a></li>
+            <li><a href="#services" className="hover:text-[#DEB887]">Services</a></li>
+            <li><a href="#contact" className="hover:text-[#DEB887]">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Bottom Copyright */}
+      <div className="text-center text-sm text-gray-500 mt-6">
+        <i className="ri-copyright-line"></i> 2025 Shagun Sofa Repair. All rights reserved.
+      </div>
+    </motion.footer>
   );
 }
 

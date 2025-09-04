@@ -12,6 +12,9 @@
   --color-sand: #E6DDC6;
 }
 
+
+/* Custom property for rotation angle */
+
 @keyframes soft-ripple {
     0% {
       transform: scale(0.9);
