@@ -6,38 +6,42 @@ import newSofa from "@/assets/newSofa.jpg";
 import sofaPolish from "@/assets/sofaPolish.jpg";
 import fabric from "@/assets/fabric.jpg";
 import Image from "next/image";
-import { CheckCircle, icons } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const services = [
   {
     id: 1,
     image: sofaRepair,
-    icon : <i className="ri-tools-fill"></i>,
-    des : "Breathe new life into your favorite sofa with expert care and a fresh look",  
+    icon: "ri-tools-fill",
+    color: "blue",
+    des: "Breathe new life into your favorite sofa with expert care and a fresh look",
     title: "Sofa Repair",
     description: ["Fix frames & springs", "Replace foam", "Fresh upholstery"],
   },
   {
     id: 2,
     image: newSofa,
-    icon : <i className="ri-sofa-fill"></i>,
-    des : "From vision to relaxation — a sofa made just for you.",
+    icon: "ri-sofa-fill",
+    color: "pink",
+    des: "From vision to relaxation — a sofa made just for you.",
     title: "New Sofa Making",
     description: ["Custom design", "Premium materials", "Durable construction"],
   },
   {
     id: 3,
     image: fabric,
-    icon : <i className="ri-scissors-cut-fill"></i>,
-    des : "Upgrade your sofa with premium fabrics and a perfect fit.",
+    icon: "ri-scissors-cut-fill",
+    color: "orange",
+    des: "Upgrade your sofa with premium fabrics and a perfect fit.",
     title: "Fabric Replacement",
     description: ["Premium fabrics", "Custom sizes", "Perfect fit"],
   },
   {
     id: 4,
     image: dryCleaning,
-    icon : <i className="ri-nurse-fill"></i>,
-    des : "Refresh your sofa with a gentle clean and fresh scent.",
+    icon: "ri-nurse-fill",
+    color: "purple",
+    des: "Refresh your sofa with a gentle clean and fresh scent.",
     title: "Dry Cleaning",
     description: [
       "Dust-free freshness",
@@ -48,8 +52,9 @@ const services = [
   {
     id: 5,
     image: sofaPolish,
-    icon : <i className="ri-paint-fill"></i>,
-    des : "Revive the elegance, restore the beauty.",
+    icon: "ri-paint-fill",
+    color: "green",
+    des: "Revive the elegance, restore the beauty.",
     title: "Sofa Polish",
     description: [
       "Enhance shine",
@@ -64,16 +69,21 @@ function Services() {
     <section className="py-16 px-3 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl border-b-2 border-[#DEB887] text-center text-gray-900 mb-12">
+        <h2 className="text-3xl md:text-4xl  border-[#DEB887] font-semibold text-center text-gray-900 mb-2">
           Our Services
         </h2>
+        <p className="text-center text-gray-600 mb-12">Every stitch, every polish, every detail — made to last for years to come.</p>
 
         {/* Service Cards */}
-        <div className="flex flex-wrap gap-8 ">
+        <div className="flex flex-wrap gap-8 justify-center">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className={`
+                rounded-2xl overflow-hidden  hover:shadow-xl transition-all duration-300 
+                w-full sm:w-[300px] shadow-2xl
+                bg-${service.color}-50 border-${service.color}
+              `}
             >
               {/* Image */}
               <div className="h-56 w-full overflow-hidden">
@@ -87,15 +97,30 @@ function Services() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-gray-800 ">
-                 {service.icon} {service.title}
+              <div className="p-6 relative">
+                {/* Icon badge */}
+                <div
+                  className={`
+                    absolute -top-8 left-6 bg-white border-2 border-${service.color}-200 
+                    text-${service.color}-500 p-3 px-4 rounded-full shadow
+                  `}
+                >
+                  <i className={`${service.icon} text-xl`}></i>
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-800 mt-4 flex items-center gap-2">
+                  {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-[12px]">{service.des}</p>
-                <ul className="space-y-2 text-gray-600">
+                <p className="text-gray-700 mb-4 text-sm">{service.des}</p>
+                <ul className="space-y-2 text-gray-700">
                   {service.description.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2 font-semibold font-mono ">
-                      <CheckCircle className="w-4 h-4 text-[#DEB887]" />
+                    <li
+                      key={index}
+                      className="flex items-center gap-2 text-sm font-medium"
+                    >
+                      <CheckCircle
+                        className={`w-4 h-4 text-${service.color}-500`}
+                      />
                       {item}
                     </li>
                   ))}

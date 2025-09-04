@@ -40,7 +40,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
 function Faq() {
   return (
     <section className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 mt-10 md:mt-28 mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900 border-b-2 border-[#DEB887]">
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900">
         Frequently Asked Questions
       </h2>
 
