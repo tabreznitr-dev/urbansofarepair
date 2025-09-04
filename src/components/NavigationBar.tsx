@@ -6,6 +6,11 @@ import Link from "next/link";
 
 
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 function NavigationBar() {
 
@@ -21,16 +26,18 @@ function NavigationBar() {
   // Define the function normally in React
   const gtag_report_conversion = (url?: string) => {
     const callback = () => {
-      if (typeof url !== 'undefined') {
+      if (url) {
         window.location.href = url;
       }
     };
-    (window as any).gtag('event', 'conversion', {
+  
+    window.gtag?.('event', 'conversion', {
       send_to: 'AW-17487093185/a9KWCObAqogbEMG7v5JB',
       value: 15000.0,
       currency: 'INR',
       event_callback: callback,
     });
+  
     return false;
   };
 
