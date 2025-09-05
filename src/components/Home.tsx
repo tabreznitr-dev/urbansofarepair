@@ -2,9 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Sofa, Wrench, Brush } from "lucide-react";
-import sofa1 from "@/assets/sofaRepair.jpg";
-import sofa2 from "@/assets/sofaPolish.jpg";
-import sofa3 from "@/assets/hero1.jpg";
+import sofa1 from "@/assets/h1.jpg";
+import sofa2 from "@/assets/h2.jpg";
+import sofa3 from "@/assets/h3.jpg";
 
 /**
  * USAGE:
@@ -87,7 +87,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full h-screen overflow-hidden "
+      className="relative w-full h-[99vh] overflow-hidden "
       aria-label="Hero: Sofa showcase"
     >
       {/* Background images (stacked, fade) */}
@@ -113,14 +113,14 @@ export default function HeroCarousel() {
 
       {/* Fixed content (heading + subheading + CTAs) */}
       <div className="relative z-20  h-full flex flex-col justify-center items-center px-4 ">
-       <div className="text-white   flex justify-start flex-wrap">
+       <div className="   flex justify-start flex-wrap">
          <h1 className="text-4xl text-semibold text-white/90">
          Premium Sofa <br /> Makers 
          & Repair <br /> in Gurgaon
          </h1>
       
 
-        <p className="mt-4 text-sm sm:text-base text-white/90 max-w-2xl">
+        <p className="mt-4 text-[12px] sm:text-base text-white/85 max-w-2xl">
         Crafted for Comfort | Designed to Last | luxury living made affordable.
         </p>
 
@@ -128,14 +128,10 @@ export default function HeroCarousel() {
         <div className="mt-6 flex gap-3">
         <a
   href="tel:+911234567890"
-  className="inline-block rounded-2xl px-8 py-3 font-semibold text-white 
-             bg-gradient-to-r from-[#193e6e] via-[#052d56bb] to-[#204375]
-             shadow-md hover:shadow-lg 
-             hover:scale-105 hover:from-[#2C3E50] hover:via-[#34495E] hover:to-[#2C3E50]
-             transition-all duration-300 ease-in-out border border-white/10"
+  className="border-1 border-[#DEB887] px-4 py-2 rounded-2xl  text-[#DEB887] "
 >
   Book Now
-</a>  
+</a>
         </div>
         </div>
       </div>
@@ -158,7 +154,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Bottom feature bar */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 w-[95%] sm:w-[78%] md:w-[60%] lg:w-[44%]">
+      {/* <div className="absolute bottom-9 left-1/2 transform -translate-x-1/2 z-30 w-[95%] sm:w-[78%] md:w-[60%] lg:w-[44%]">
         <div
           className="w-full rounded-2xl px-6 py-3 flex justify-between items-center gap-4 shadow-2xl"
           style={{
@@ -179,7 +175,7 @@ export default function HeroCarousel() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Dots / indicators just above feature bar */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">

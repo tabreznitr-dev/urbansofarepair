@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import dryCleaning from "@/assets/dryCleaning.jpg";
-import sofaRepair from "@/assets/sofaRepair.jpg";
-import newSofa from "@/assets/newSofa.jpg";
-import sofaPolish from "@/assets/sofaPolish.jpg";
-import fabric from "@/assets/fabric.jpg";
+import sofaRepair from "@/assets/h6.jpg";
+import newSofa from "@/assets/h4.jpg";
+import sofaPolish from "@/assets/woodensofa.jpg";
+import fabric from "@/assets/sofafabric2.jpg";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 
@@ -14,7 +14,7 @@ const services = [
     image: sofaRepair,
     icon: "ri-tools-fill",
     color: "blue",
-    des: "Breathe new life into your favorite sofa with expert care and a fresh look",
+    des: "Breathe new life into your favorite sofa .",
     title: "Sofa Repair",
     description: ["Fix frames & springs", "Replace foam", "Fresh upholstery"],
   },
@@ -22,8 +22,8 @@ const services = [
     id: 2,
     image: newSofa,
     icon: "ri-sofa-fill",
-    color: "pink",
-    des: "From vision to relaxation — a sofa made just for you.",
+    color: "blue",
+    des: "A sofa that matches your style and comfort preferences.",
     title: "New Sofa Making",
     description: ["Custom design", "Premium materials", "Durable construction"],
   },
@@ -31,7 +31,7 @@ const services = [
     id: 3,
     image: fabric,
     icon: "ri-scissors-cut-fill",
-    color: "orange",
+    color: "blue",
     des: "Upgrade your sofa with premium fabrics and a perfect fit.",
     title: "Fabric Replacement",
     description: ["Premium fabrics", "Custom sizes", "Perfect fit"],
@@ -40,7 +40,7 @@ const services = [
     id: 4,
     image: dryCleaning,
     icon: "ri-nurse-fill",
-    color: "purple",
+    color: "blue",
     des: "Refresh your sofa with a gentle clean and fresh scent.",
     title: "Dry Cleaning",
     description: [
@@ -53,7 +53,7 @@ const services = [
     id: 5,
     image: sofaPolish,
     icon: "ri-paint-fill",
-    color: "green",
+    color: "blue",
     des: "Revive the elegance, restore the beauty.",
     title: "Sofa Polish",
     description: [
@@ -75,13 +75,13 @@ function Services() {
         <p className="text-center text-gray-600 mb-12">Every stitch, every polish, every detail — made to last for years to come.</p>
 
         {/* Service Cards */}
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-wrap gap-8 px-2 justify-center">
           {services.map((service) => (
             <div
               key={service.id}
               className={`
                 rounded-2xl overflow-hidden  hover:shadow-xl transition-all duration-300 
-                w-full sm:w-[300px] shadow-2xl
+                w-full sm:w-[300px] shadow-xl
                 bg-${service.color}-50 border-${service.color}
               `}
             >
@@ -97,21 +97,21 @@ function Services() {
               </div>
 
               {/* Content */}
-              <div className="p-6 relative">
+              <div className="p-4 pl-4 relative">
                 {/* Icon badge */}
                 <div
                   className={`
                     absolute -top-8 left-6 bg-white border-2 border-${service.color}-200 
-                    text-${service.color}-500 p-3 px-4 rounded-full shadow
+                    text-blue-400 p-3 px-4 rounded-full shadow
                   `}
                 >
                   <i className={`${service.icon} text-xl`}></i>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-800 mt-4 flex items-center gap-2">
+                <h3 className="text-xl font-mono  font-semibold text-black/80 mt-4 flex items-center gap-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-700 mb-4 text-sm">{service.des}</p>
+                <p className="text-gray-700 mb-4 text-[12px]">{service.des}</p>
                 <ul className="space-y-2 text-gray-700">
                   {service.description.map((item, index) => (
                     <li

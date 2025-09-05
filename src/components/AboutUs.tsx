@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Award, ShieldCheck, ThumbsUp } from 'lucide-react'
+import { Award, ShieldCheck, ThumbsUp, BadgeDollarSign, Clock } from 'lucide-react'
 
 const aboutPoints = [
   {
@@ -21,9 +21,23 @@ const aboutPoints = [
   {
     title: 'Quality Guaranteed',
     icon: ThumbsUp,
+    color: 'bg-red-100',
+    iconColor: 'text-red-500',
+    description: 'We use premium materials and skilled craftsmanship to ensure lasting results.',
+  },
+  {
+    title: 'Affordable Pricing',
+    icon: BadgeDollarSign,
+    color: 'bg-yellow-100',
+    iconColor: 'text-yellow-500',
+    description: 'Get premium sofa services at prices that fit your budget.',
+  },
+  {
+    title: '2 Years Warranty',
+    icon: Clock,
     color: 'bg-blue-100',
     iconColor: 'text-blue-500',
-    description: 'We use premium materials and skilled craftsmanship to ensure lasting results.',
+    description: 'Enjoy peace of mind with a 2-year warranty on sofa repairs and new sofa making.',
   },
 ]
 
@@ -31,7 +45,7 @@ export default function AboutUs() {
   return (
     <section className="w-full flex flex-col items-center text-center py-12 px-4">
       {/* Heading */}
-      <h1 className="text-3xl font-bold mb-2">About Us</h1>
+      <h1 className="text-3xl font-bold mb-2">Why Choose Us ?</h1>
       <p className="text-gray-600 mb-8 max-w-md">
         We bring new life to old sofas with professional cleaning, repair, and polishing.
       </p>
