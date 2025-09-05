@@ -23,10 +23,10 @@ export default function Home() {
       
       <Footer/>
 
-      <motion.div  className="bg-[#DEB887] z-25  w-full h-[10px]  origin-left fixed top-14 md:top-16 left-0"
+      {/* <motion.div  className="bg-[#DEB887] z-25  w-full h-[10px]  origin-left fixed top-14 md:top-16 left-0"
         style={{
           scaleX : scrollYProgress
-        }}></motion.div>
+        }}></motion.div> */}
    </div>
   );
 }

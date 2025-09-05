@@ -23,21 +23,21 @@ function Footer() {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
-      className="bg-primary text-gray-300 rounded-t-2xl md:mt-20 px-6 md:px-16 py-10"
+      className="bg-white text-black/80 rounded-t-xl border-t-3 border-blue-100 shadow-2xl md:mt-20 px-6 md:px-16 py-10"
     >
       {/* Main Footer Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-700 pb-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-blue-200 pb-8">
         
         {/* Brand */}
         <div>
-          <h1 className="text-xl font-semibold text-[#DEB887] flex items-center gap-2">
+          <h1 className="text-xl font-semibold text-[#647FBC] flex items-center gap-2">
             <i className="ri-sofa-fill"></i> Shagun Sofa Repair
           </h1>
           <p className="text-sm mt-2">M3M Cosmopolitan Mall, Gurgaon</p>
           <p className="text-sm mt-3 leading-relaxed">
             Revive, redesign, or upgrade – we bring life back to your sofas with expert repair and craftsmanship trusted since 2012.
           </p>
-          <div className="flex gap-4 text-2xl mt-4 text-[#DEB887]">
+          <div className="flex gap-4 text-2xl mt-4 text-[#647FBC]">
             <i className="ri-facebook-circle-fill cursor-pointer hover:scale-110 transition" />
             <a href="https://www.instagram.com/farman__ali92/" target="_blank">
               <i className="ri-instagram-fill cursor-pointer hover:scale-110 transition" />
@@ -54,7 +54,7 @@ function Footer() {
 
         {/* Services */}
         <div>
-          <h2 className="text-lg font-semibold text-[#DEB887]">Our Services</h2>
+          <h2 className="text-lg font-semibold text-[#647FBC]">Our Services</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>Sofa Repair</li>
             <li>New Sofa Making</li>
@@ -66,35 +66,35 @@ function Footer() {
 
         {/* Contact */}
         <div>
-          <h2 className="text-lg font-semibold text-[#DEB887]">Contact Us</h2>
+          <h2 className="text-lg font-semibold text-[#647FBC]">Contact Us</h2>
           <ul className="mt-3 space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <i className="ri-map-pin-fill text-[#DEB887]" /> M3M Cosmopolitan Mall, Gurgaon
+              <i className="ri-map-pin-fill text-[#647FBC]" /> M3M Cosmopolitan Mall, Gurgaon
             </li>
             <li className="flex items-center gap-2">
               <a href="tel:+919058304133" className="flex items-center gap-2 hover:text-[#DEB887]">
-                <i className="ri-phone-fill text-[#DEB887]" /> +91 9058304133
+                <i className="ri-phone-fill text-[#647FBC]" /> +91 9058304133
               </a>
             </li>
             <li className="flex items-center gap-2">
               <a href="mailto:shagunsofarepair@gmail.com" className="flex items-center gap-2 hover:text-[#DEB887]">
-                <i className="ri-mail-fill text-[#DEB887]" /> shagunsofarepair@gmail.com
+                <i className="ri-mail-fill text-[#647FBC]" /> shagunsofarepair@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <i className="ri-time-fill text-[#DEB887]" /> Mon-Sun, 9AM - 9PM
+              <i className="ri-time-fill text-[#647FBC]" /> Mon-Sun, 9AM - 9PM
             </li>
           </ul>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h2 className="text-lg font-semibold text-[#DEB887]">Quick Links</h2>
+          <h2 className="text-lg font-semibold text-[#647FBC]">Quick Links</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="#home" className="hover:text-[#DEB887]">Home</a></li>
-            <li><a href="#about" className="hover:text-[#DEB887]">About Us</a></li>
-            <li><a href="#services" className="hover:text-[#DEB887]">Services</a></li>
-            <li><a href="#contact" className="hover:text-[#DEB887]">Contact</a></li>
+            <li><a href="#home" className="hover:text-[#647FBC]">Home</a></li>
+            <li><a href="#about" className="hover:text-[#647FBC]">About Us</a></li>
+            <li><a href="#services" className="hover:text-[#647FBC]">Services</a></li>
+            <li><a href="#contact" className="hover:text-[#647FBC]">Contact</a></li>
           </ul>
         </div>
       </div>
