@@ -14,10 +14,12 @@ function NavigationBar() {
   const [scrolled, setScrolled] = useState(false);
 
   const menuItems = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Why  Us", href: "#why-choose-us" },
+    { name: "Our Offerings", href: "#offerings" },
+    { name: "Restoration", href: "#restoration-showcase" },
+    { name: "Contact", href: "#contact" },
   ];
 
   // Scroll detection
@@ -67,7 +69,7 @@ function NavigationBar() {
           {/* Phone button */}
           <a href="tel:+917846940025">
             <button className="relative w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center">
-              <i className="text-2xl text-blue-500 ri-phone-fill"></i>
+              <i className="text-2xl text-[#5682B1] ri-phone-fill"></i>
             </button>
           </a>
         </div>
@@ -143,12 +145,12 @@ function NavigationBar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full h-screen bg-white dark:bg-gray-900 z-40 flex flex-col items-center justify-center space-y-8"
+              className="fixed top-0 left-0 w-full h-screen bg-yellow-50 z-40 flex flex-col items-center justify-center space-y-8"
             >
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 text-3xl text-gray-800 dark:text-gray-200"
+                className="absolute top-5 right-5 text-xl text-gray-800 "
               >
                 &times;
               </button>
@@ -157,7 +159,7 @@ function NavigationBar() {
                 <Link
                   key={i}
                   href={item.href}
-                  className="text-3xl font-mono text-gray-800 dark:text-gray-200 hover:text-primary transition-colors duration-300"
+                  className="text-2xl font-mono font-thin  text-black  hover:text-primary transition-colors duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

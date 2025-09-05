@@ -65,7 +65,7 @@ function Footer() {
         </div>
 
         {/* Contact */}
-        <div>
+        <div id="contact">
           <h2 className="text-lg font-semibold text-[#647FBC]">Contact Us</h2>
           <ul className="mt-3 space-y-3 text-sm">
             <li className="flex items-center gap-2">

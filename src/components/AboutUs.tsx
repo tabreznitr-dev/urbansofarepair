@@ -43,7 +43,9 @@ const aboutPoints = [
 
 export default function AboutUs() {
   return (
-    <section className="w-full flex flex-col items-center text-center py-12 px-4">
+    <section 
+    id='why-choose-us'
+    className="w-full flex flex-col items-center text-center py-12 px-4">
       {/* Heading */}
       <h1 className="text-3xl font-bold mb-2">Why Choose Us ?</h1>
       <p className="text-gray-600 mb-8 max-w-md">

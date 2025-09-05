@@ -66,7 +66,9 @@ const services = [
 
 function Services() {
   return (
-    <section className="py-16 px-3 bg-gray-50">
+    <section 
+    id="services"
+    className="py-16 px-3 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <h2 className="text-3xl md:text-4xl  border-[#DEB887] font-semibold text-center text-gray-900 mb-2">
