@@ -82,7 +82,7 @@ function Services() {
               className={`
                 rounded-2xl overflow-hidden  hover:shadow-xl transition-all duration-300 
                 w-full sm:w-[300px] shadow-xl
-                bg-${service.color}-50 border-${service.color}
+               
               `}
             >
               {/* Image */}

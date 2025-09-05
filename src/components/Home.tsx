@@ -22,17 +22,17 @@ const SLIDES = [
   {
     id: 1,
     src: sofa1, // replace with your image
-    tag: "⭐ 15+ Years Experience",
+    tag: " 10+ Years Experience",
   },
   {
     id: 2,
     src: sofa2,
-    tag: "🛋️ Custom Sofa Designs",
+    tag: " Custom Sofa Designs",
   },
   {
     id: 3,
     src: sofa3,
-    tag: "✨ Premium Finishing",
+    tag: " Premium Finishing",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full h-[99vh] overflow-hidden "
+      className="relative w-full h-[94vh] overflow-hidden "
       aria-label="Hero: Sofa showcase"
     >
       {/* Background images (stacked, fade) */}
@@ -128,7 +128,7 @@ export default function HeroCarousel() {
         <div className="mt-6 flex gap-3">
         <a
   href="tel:+911234567890"
-  className="border-1 border-[#DEB887] px-4 py-2 rounded-2xl  text-[#DEB887] "
+  className="border-1 border-yellow-100 px-4 py-2 rounded-2xl  text-yellow-100 "
 >
   Book Now
 </a>
@@ -137,21 +137,15 @@ export default function HeroCarousel() {
       </div>
 
       {/* Floating tag (updates with image) */}
-      <div
-        className="absolute top-6 left-6 z-30"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onTouchStart={() => setPaused(true)}
-        onTouchEnd={() => setPaused(false)}
-      >
-        <div
-          className="rounded-xl px-3 py-1.5 text-sm font-semibold bg-white/90 backdrop-blur-sm shadow-sm border"
-          style={{ borderColor: "rgba(235,214,189,0.9)", color: "#8b5e34" }}
-          aria-live="polite"
-        >
-          {activeSlide.tag}
-        </div>
-      </div>
+ {/* <div className="absolute top-24 left-10 z-30">
+  <div
+    className="rounded-md px-4 py-2 text-sm font-medium text-[#6b4f36]
+               bg-[#f5f0e6]/70 backdrop-blur-sm border border-[#e5d5c5] shadow-sm"
+    aria-live="polite"
+  >
+    {activeSlide.tag}
+  </div>
+</div> */}
 
       {/* Bottom feature bar */}
       {/* <div className="absolute bottom-9 left-1/2 transform -translate-x-1/2 z-30 w-[95%] sm:w-[78%] md:w-[60%] lg:w-[44%]">
@@ -188,7 +182,7 @@ export default function HeroCarousel() {
               i === index ? "scale-110" : "opacity-50"
             }`}
             style={{
-              backgroundColor: i === index ? "#58A0C8" : "#34699A",
+              backgroundColor: i === index ? "#FFF0CE" : "#EBCB90",
               border: "none",
             }}
             onMouseEnter={() => setPaused(true)}
