@@ -99,7 +99,7 @@ function NavigationBar() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl  text-sand"><i className="ri-sofa-fill"></i>Shagun Sofa
+            <h1 className="text-xl  text-[#DEB887]"><i className="ri-sofa-fill"></i>Shagun Sofa
             <br /><p className="text-white/80 text-[10px]">M3M Cosmopolitan Mall, Gurgaon</p></h1>
           </div>
 
