@@ -38,7 +38,7 @@ export default function OfferBand() {
   const content = (
     <div className="flex items-center gap-4 whitespace-nowrap px-6">
       <span className="font-semibold text-black/80 text-lg">
-        20% OFF for New Customers on Sofa Repair and New Sofa Making &nbsp; &nbsp; &nbsp; &nbsp; |
+        10% OFF for New Customers on Sofa Repair and New Sofa Making &nbsp; &nbsp; &nbsp;  |&nbsp;&nbsp; 
       </span>
     </div>
   )

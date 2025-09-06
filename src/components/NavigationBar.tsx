@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -129,7 +130,7 @@ function NavigationBar() {
             <div className="sm:hidden">
               <button
                 onClick={() => setIsOpen(true)}
-                className={`text-[#647FBC] focus:outline-none ${scrolled ? "text-[#647FBC]" : "text-white/80"}`}
+                className={`text-[#647FBC] focus:outline-none ${scrolled ? "text-[#5682B1]" : "text-white/80"}`}
               >
                 <span className="text-2xl">&#9776;</span>
               </button>
@@ -145,7 +146,7 @@ function NavigationBar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full h-screen bg-yellow-50 z-40 flex flex-col items-center justify-center space-y-8"
+              className="fixed top-0 left-0 w-full h-screen bg-blue-100  z-40 flex flex-col items-center justify-center space-y-8"
             >
               {/* Close Button */}
               <button
@@ -154,7 +155,9 @@ function NavigationBar() {
               >
                 &times;
               </button>
-
+              <h2 className={`absolute top-5 left-5 font-cedarville text-xl font-bold`}>
+      Shagun Sofa Repair
+    </h2>
               {menuItems.map((item, i) => (
                 <Link
                   key={i}
