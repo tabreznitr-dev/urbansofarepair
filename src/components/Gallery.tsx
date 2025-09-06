@@ -1,6 +1,6 @@
 import React from 'react'
 import {ImageCarousel} from "./ui/ImageCarousel";
-import leatherfabric from '@/assets/leatherfabrics.jpg'
+import leatherfabric from '@/assets/GalleryLeatherFabric.jpg'
 import colorfulfabric from '@/assets/colorfulfabrics.jpg'
 import primumfabric from "@/assets/preimumfabrics.jpg"
 import woodensofa from '@/assets/woodensofa.jpg'
@@ -47,19 +47,19 @@ function Gallery() {
     {
       id: 6, 
       imageUrl: leatherfabric.src,
-      alt: "Leather Fabric",
+      alt: "Leather Fabrics",
       title: "Leather Fabric",
     },
     {
       id: 7,
       imageUrl: colorfulfabric.src,
-      alt: "Colorful Fabric",
+      alt: "Color Fabrics",
       title: "Colorful Fabric",
     },
     {
       id: 8,
       imageUrl: primumfabric.src,
-      alt: "Primum Fabric",
+      alt: "Primum Fabrics",
       title: "Primum Fabric",
     },
   ];

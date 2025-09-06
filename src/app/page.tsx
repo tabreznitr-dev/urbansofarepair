@@ -11,6 +11,7 @@ import OfferBand from "@/components/OfferBand";
 import Testimonial from "@/components/Testimonial";
 import CompareImage from "@/components/CompareImage";
 import Gallery from "@/components/Gallery";
+import Numbers from "@/components/Numbers";
 
 
 
@@ -20,16 +21,19 @@ export default function Home() {
    <div className="bg-gray-50">
     <HeroSection/>
     <OfferBand/>
+    {/* <Numbers/> */}
       <NavigationBar/>
       <Services/>
       <AboutUs/>
       <CompareImage/>
-      <OfferBand/>
+      
       <Testimonial/>
+      <OfferBand/>
       <Gallery/>
       <Faq/>
 
       <Footer/>
+
 
       <motion.div  className="bg-[#5682B1] z-25  w-full h-[8px]  origin-left fixed top-15 md:top-16 left-0"
         style={{
