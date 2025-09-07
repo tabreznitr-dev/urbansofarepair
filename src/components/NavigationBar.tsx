@@ -68,7 +68,7 @@ function NavigationBar() {
             style={{ borderColor: '#42A5F5', animationDelay: '1.0s' }}></span>
 
           {/* Phone button */}
-          <a href="tel:+917846940025">
+          <a href="tel:+919058304133">
             <button className="relative w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center">
               <i className="text-2xl text-[#5682B1] ri-phone-fill"></i>
             </button>
@@ -78,7 +78,7 @@ function NavigationBar() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/917846940025?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
+        href="https://wa.me/919058304133?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -146,7 +146,7 @@ function NavigationBar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full h-screen bg-blue-100  z-40 flex flex-col items-center justify-center space-y-8"
+              className="fixed top-0 left-0 w-full h-screen bg-white  z-40 flex flex-col items-center justify-center space-y-8"
             >
               {/* Close Button */}
               <button
@@ -157,17 +157,18 @@ function NavigationBar() {
               </button>
               <h2 className={`absolute top-5 left-5 font-cedarville text-xl font-bold`}>
       Shagun Sofa Repair
-    </h2>
+    </h2>.   <div className='flex flex-col absolute top-30 gap-5 font-semibold left-5 items-start'>
               {menuItems.map((item, i) => (
                 <Link
                   key={i}
                   href={item.href}
-                  className="text-2xl font-mono font-thin  text-black  hover:text-primary transition-colors duration-300"
+                  className="text-2xl font-mono   text-black  hover:text-primary transition-colors duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
+            </div>
             </motion.div>
           )}
         </AnimatePresence>
