@@ -88,7 +88,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="home"
-      className="relative w-full h-[94vh] overflow-hidden "
+      className="relative w-full h-[92vh] overflow-hidden "
       aria-label="Hero: Sofa showcase"
     >
       {/* Background images (stacked, fade) */}
