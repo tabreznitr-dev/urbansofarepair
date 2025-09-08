@@ -4,6 +4,7 @@ import { SparklesCore } from "@/components/ui/Sparkles"
 import { AnimatePresence, motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { IconDotsVertical, IconArrowsHorizontal, IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react"
+import Image from "next/image";
 
 interface CompareProps {
   firstImage?: string
@@ -38,6 +39,8 @@ export const Compare = ({
   const [isDragging, setIsDragging] = useState(false)
   const [isAutoplayActive, setIsAutoplayActive] = useState(autoplay)
   const [isMouseOver, setIsMouseOver] = useState(false)
+
+  const MotionImage = motion.create(Image);
 
   const sliderRef = useRef<HTMLDivElement>(null)
   const autoplayRef = useRef<NodeJS.Timeout | null>(null)
@@ -256,15 +259,16 @@ export const Compare = ({
                 }}
                 transition={{ duration: 0 }}
               >
-                <img
-                  alt={firstImageLabel}
-                  src={firstImage || "/placeholder.svg"}
-                  className={cn(
-                    "absolute inset-0 z-20 shrink-0 w-full h-full select-none object-cover rounded-3xl",
-                    firstImageClassName,
-                  )}
-                  draggable={false}
-                />
+               <Image
+  alt={firstImageLabel}
+  src={firstImage || "/placeholder.svg"}
+  className={cn(
+    "absolute inset-0 z-20 shrink-0 w-full h-full select-none object-cover rounded-3xl",
+    firstImageClassName,
+  )}
+  draggable={false}
+  fill
+/>
               </motion.div>
             ) : null}
           </AnimatePresence>
@@ -272,15 +276,17 @@ export const Compare = ({
 
         <AnimatePresence initial={false}>
           {secondImage ? (
-            <motion.img
-              className={cn(
-                "absolute top-0 left-0 z-[19] w-full h-full select-none object-cover rounded-3xl",
-                secondImageClassname,
-              )}
-              alt={secondImageLabel}
-              src={secondImage}
-              draggable={false}
-            />
+          <MotionImage
+          className={cn(
+            "absolute top-0 left-0 z-[19] w-full h-full select-none object-cover rounded-3xl",
+            secondImageClassname,
+          )}
+          alt={secondImageLabel}
+          src={secondImage}
+          draggable={false}
+          fill
+          priority
+        />
           ) : null}
         </AnimatePresence>
 
