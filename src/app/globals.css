@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import 'remixicon/fonts/remixicon.css';
 
+
 @theme inline {
   --color-primary: #1F2937;
   --color-accent: #D5B895;
@@ -14,6 +15,20 @@
 
 
 /* Custom property for rotation angle */
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 1rem)); /* 1rem matches the gap value */
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+}
 
 @keyframes soft-ripple {
     0% {
