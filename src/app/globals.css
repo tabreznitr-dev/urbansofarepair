@@ -54,3 +54,104 @@
     border-color: currentColor;
     background-color: transparent !important;
   }
+
+
+  /* Add this to your globals.css file */
+
+.card-stack-container {
+  --active-index: 0; /* This will be controlled by React */
+}
+
+.card-stack-item {
+  --index-offset: calc(var(--i) - var(--active-index));
+  --total-cards: 6; /* Set this to the number of cards */
+
+  /* Default styles for all cards */
+  position: absolute;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transform-origin: top center;
+  
+  /* Calculate position and scale based on offset */
+  transform: translateY(calc(var(--index-offset) * -10px)) scale(calc(1 - var(--index-offset) * 0.06));
+  z-index: calc(var(--total-cards) - var(--index-offset));
+
+  /* Hide cards that have been cycled through or are too far back */
+  opacity: calc(1 - (var(--index-offset) / 3));
+  pointer-events: none; /* Disable interaction for cards not on top */
+}
+
+.card-stack-item[data-active="true"] {
+  pointer-events: auto; /* Enable interaction only for the top card */
+}
+
+/* Hide cards that have been cycled through to the back */
+.card-stack-item[data-status="inactive"] {
+  transform: translateY(-10px) scale(0.94);
+  opacity: 0;
+  z-index: -1;
+}
+
+.compare-slider {
+  /* Set a default value for the CSS variable */
+  --slider-position: 50%;
+}
+
+.compare-slider > .slider-handle {
+  left: var(--slider-position);
+  transform: translateX(-50%);
+}
+
+.compare-slider > div:first-child {
+  clip-path: inset(0 calc(100% - var(--slider-position)) 0 0);
+}
+
+/* Autoplay Animation */
+.compare-slider.is-autoplaying {
+  animation: autoplay-slider var(--autoplay-duration, 5000ms) infinite alternate ease-in-out;
+}
+
+@keyframes autoplay-slider {
+  from {
+    --slider-position: 15%;
+  }
+  to {
+    --slider-position: 85%;
+  }
+}
+
+
+/* --- Sparkles Styles --- */
+
+.sparkle-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: #fef08a; /* A nice yellow sparkle color */
+  opacity: 0;
+  pointer-events: none;
+  animation-name: sparkle-animation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sparkle-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0.5);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(0.5);
+  }
+  75% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0);
+  }
+}
