@@ -209,7 +209,7 @@ function NavigationBar() {
                 </div>
 
                 {/* Contact Actions */}
-                <div className="p-6 border-t border-gray-100 space-y-3">
+                <div className=" p-6 border-t border-gray-100 space-y-3">
                   <a
                     href="tel:+919058304133"
                     className="flex items-center gap-3 w-full py-3 px-4 bg-[#647FBC] text-white rounded-lg hover:bg-[#5682B1] transition-colors"

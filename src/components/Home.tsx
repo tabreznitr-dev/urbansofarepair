@@ -115,10 +115,10 @@ export default function HeroCarousel() {
       {/* Fixed content (heading + subheading + CTAs) */}
       <div className="relative z-20  h-full flex flex-col justify-center items-center px-4 ">
        <div className="   flex justify-start flex-wrap">
-         <h1 className="text-4xl text-semibold text-white/90">
-         Premium Sofa <br /> Makers 
-         & Repair <br /> in Gurgaon
-         </h1>
+       <h1 className="text-3xl text-white/90 drop-shadow-lg leading-tight">
+  Sofa Makers <br /> & Repair Experts <br />
+  Bringing Comfort <br /> & Style to <br /> Gurgaon 
+</h1>
       
 
         <p className="mt-4 text-[12px] sm:text-base text-white/85 max-w-2xl">
