@@ -12,19 +12,26 @@ const aboutPoints = [
     description: 'We’ve been restoring sofas with expertise and care for over a decade.',
   },
   {
+    title: '5 Years Warranty',
+    icon: Clock,
+    color: 'bg-blue-100',
+    iconColor: 'text-blue-500',
+    description: 'Enjoy peace of mind with a 3-year warranty on sofa repairs and a 5-year warranty on new sofa making.',
+  },
+  {
     title: 'Trusted Service',
     icon: ShieldCheck,
     color: 'bg-green-100',
     iconColor: 'text-green-500',
     description: 'Thousands of happy customers trust us with their furniture.',
   },
-  {
-    title: 'Quality Guaranteed',
-    icon: ThumbsUp,
-    color: 'bg-red-100',
-    iconColor: 'text-red-500',
-    description: 'We use premium materials and skilled craftsmanship to ensure lasting results.',
-  },
+  // {
+  //   title: 'Quality Guaranteed',
+  //   icon: ThumbsUp,
+  //   color: 'bg-red-100',
+  //   iconColor: 'text-red-500',
+  //   description: 'We use premium materials and skilled craftsmanship to ensure lasting results.',
+  // },
   {
     title: 'Affordable Pricing',
     icon: BadgeDollarSign,
@@ -32,13 +39,7 @@ const aboutPoints = [
     iconColor: 'text-yellow-500',
     description: 'Get premium sofa services at prices that fit your budget.',
   },
-  {
-    title: '2 Years Warranty',
-    icon: Clock,
-    color: 'bg-blue-100',
-    iconColor: 'text-blue-500',
-    description: 'Enjoy peace of mind with a 2-year warranty on sofa repairs and new sofa making.',
-  },
+ 
 ]
 
 export default function AboutUs() {
