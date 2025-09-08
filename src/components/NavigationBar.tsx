@@ -118,7 +118,7 @@ function NavigationBar() {
                   key={i}
                   href={item.href}
                   className={`transition-colors duration-300 ${
-                    scrolled ? "text-white hover:text-yellow-200" : "text-white hover:text-yellow-200"
+                    scrolled ? "text-slate-600 hover:text-blue-500" : "text-white hover:text-yellow-200"
                   }`}
                 >
                   {item.name}
@@ -147,7 +147,8 @@ function NavigationBar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                // ✨ Changed: Faster backdrop transition
+                transition={{ duration: 0.2, ease: "easeInOut" }}
                 className="fixed inset-0 bg-black/50 z-40"
                 onClick={() => setIsOpen(false)}
               />
@@ -157,8 +158,14 @@ function NavigationBar() {
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="fixed top-0 left-0 w-80 max-w-[85vw] h-screen bg-white shadow-2xl z-50 flex flex-col"
+                // ✨ Changed: Replaced duration-based ease with a physics-based spring
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
+                }}
+                // ✨ Added: Performance optimization for smoother animation
+                className="fixed top-0 left-0 w-80 max-w-[85vw] h-screen bg-white shadow-2xl z-50 flex flex-col will-change-transform"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-100">
@@ -186,7 +193,7 @@ function NavigationBar() {
                         key={i}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 + 0.2 }}
+                        transition={{ delay: i * 0.07 + 0.1 }}
                       >
                         <Link
                           href={item.href}
