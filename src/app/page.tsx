@@ -19,10 +19,10 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   return (
    <div className="bg-gray-50">
-    {/* <HeroSection/>
+    <HeroSection/>
     <OfferBand/>
-    {/* <Numbers/> */}
-      {/* <NavigationBar/>
+    <Numbers/>
+       <NavigationBar/>
       <Services/>
       <AboutUs/>
       <CompareImage/>
@@ -32,16 +32,18 @@ export default function Home() {
       <Gallery/>
       <Faq/>
 
-      <Footer/> */}
+      <Footer/>
 
 
-      {/* <motion.div  className="bg-[#5682B1] z-25  w-full h-[8px]  origin-left fixed top-15 md:top-16 left-0"
+      <motion.div  className="bg-[#5682B1] z-25  w-full h-[8px]  origin-left fixed top-15 md:top-16 left-0"
         style={{
           scaleX : scrollYProgress
-        }}></motion.div>  */}
-        <div className="h-screen flex items-center justify-center font-bold text-center px-4">
-          Service is not available at the moment.
+        }}></motion.div>  
+{/* 
+        // <div className="h-screen flex items-center justify-center font-bold text-center px-4">
+        //   Service is not available at the moment.
+        // </div> */}
+  
         </div>
-   </div>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Users, Armchair, Hammer } from 'lucide-react'; // Example icons
 
-// A custom hook for the counting animation
+// --- HOOKS ---
 const useCountUp = (end: number, duration: number, start: boolean): number => {
     const [count, setCount] = useState<number>(0);
-    const frameRate = 1000 / 60; // 60 fps
+    const frameRate = 1000 / 60;
     const totalFrames = Math.round(duration / frameRate);
 
     useEffect(() => {
@@ -12,13 +13,14 @@ const useCountUp = (end: number, duration: number, start: boolean): number => {
         let frame = 0;
         const counter = setInterval(() => {
             frame++;
-            const progress = frame / totalFrames;
+            // Optional: Add an easing function here for smoother animation
+            const progress = frame / totalFrames; 
             const currentCount = Math.round(end * progress);
             setCount(currentCount);
 
             if (frame === totalFrames) {
                 clearInterval(counter);
-                setCount(end); // Ensure it ends on the exact number
+                setCount(end);
             }
         }, frameRate);
 
@@ -28,107 +30,138 @@ const useCountUp = (end: number, duration: number, start: boolean): number => {
     return count;
 };
 
-// Interface for StatCard props
+// --- TYPES ---
 interface StatCardProps {
     value: number;
     label: string;
+    icon: React.ElementType; // Accept a component for the icon
     startAnimation: boolean;
+    color: string; // Dynamic color for borders/icons
 }
 
-// A component for a single statistic
-const StatCard: React.FC<StatCardProps> = ({ value, label, startAnimation }) => {
+interface Stat {
+    id: number;
+    value: number;
+    label: string;
+    icon: React.ElementType;
+    color: string;
+}
+
+// --- COMPONENTS ---
+
+const StatCard: React.FC<StatCardProps> = ({ value, label, icon: Icon, startAnimation, color }) => {
     const count = useCountUp(value, 2000, startAnimation);
 
     const formatNumber = (num: number): string => {
         if (num >= 1000) {
             const divided = num / 1000;
-            // Use toFixed(1) for numbers like 2.5, and toFixed(0) for whole thousands
             return divided.toFixed(Number.isInteger(divided) ? 0 : 1) + 'K+';
         }
         return num + '+';
     };
 
     return (
-        <div className="flex flex-col items-center justify-center py-2 md:p-8  rounded-2xl border  shadow-lg backdrop-blur-sm">
-            <span className="text-3xl md:text-6xl lg:text-7xl font-bold text-black tracking-tighter">
-                {formatNumber(count)}
-            </span>
-            <p className="mt-2 text-lg md:text-xl text-gray-300 font-medium">{label}</p>
+        <div className="group relative bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-2">
+            {/* Decorative background blur blob */}
+            <div className={`absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 rounded-full opacity-10 blur-2xl ${color}`}></div>
+
+            <div className="relative flex flex-col items-center justify-center text-center">
+                {/* Icon Circle */}
+                <div className={`mb-4 p-4 rounded-full bg-opacity-10 ${color.replace('bg-', 'bg-opacity-10 text-')}`}>
+                    <Icon className={`w-8 h-8 ${color.replace('bg-', 'text-')}`} />
+                </div>
+                
+                {/* Number with Gradient */}
+                <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600 mb-2">
+                    {formatNumber(count)}
+                </span>
+                
+                {/* Label */}
+                <p className="text-gray-500 font-medium text-lg uppercase tracking-wide">
+                    {label}
+                </p>
+            </div>
         </div>
     );
 };
 
-// Interface for a single stat object
-interface Stat {
-    id: number;
-    value: number;
-    label: string;
-}
-
-// Main  Component
 const Numbers: React.FC = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const statsRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            (entries: IntersectionObserverEntry[]) => {
-                const [entry] = entries;
+            ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target); // Stop observing once it's visible
+                    observer.unobserve(entry.target);
                 }
             },
-            {
-                threshold: 0.5, // Trigger when 50% of the element is in view
-            }
+            { threshold: 0.3 } // Lowered threshold slightly for better mobile trigger
         );
 
-        const currentRef = statsRef.current;
-        if (currentRef) {
-            observer.observe(currentRef);
+        if (statsRef.current) {
+            observer.observe(statsRef.current);
         }
 
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
+        return () => observer.disconnect();
     }, []);
 
     const stats: Stat[] = [
-        { id: 1, value: 10000, label: 'Satisfied Customers' },
-        { id: 2, value: 5000, label: 'Sofa Repaired' },
-        { id: 3, value: 2500, label: 'Sofa Made' },
+        { 
+            id: 1, 
+            value: 10000, 
+            label: 'Satisfied Customers', 
+            icon: Users,
+            color: 'bg-blue-600' 
+        },
+        { 
+            id: 2, 
+            value: 5000, 
+            label: 'Sofas Repaired', 
+            icon: Hammer,
+            color: 'bg-orange-500' 
+        },
+        { 
+            id: 3, 
+            value: 2500, 
+            label: 'Custom Sofas Made', 
+            icon: Armchair,
+            color: 'bg-emerald-500' 
+        },
     ];
 
     return (
-        <div className=" min-h-screen text-black font-sans">
-           
+        <div className="bg-gray-50">
+            <section ref={statsRef} className="py-20 md:py-32 container mx-auto px-4">
+                {/* Section Header */}
+                <div className={`max-w-3xl mx-auto text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Trusted by Homeowners Everywhere
+                    </h2>
+                    <p className="text-lg text-gray-600">
+                        We take pride in our craftsmanship. Here are the numbers that define our journey and dedication to quality service.
+                    </p>
+                </div>
 
-            <main className="container mx-auto px-4">
-                {/* Placeholder content to enable scrolling */}
-              
-                {/* The stats section that will be observed */}
-                <section 
-                    ref={statsRef} 
-                    className={`py-10 transition-opacity duration-1000 ease-in ${isVisible ? '' : 'opacity-0'}`}
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        {stats.map((stat) => (
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    {stats.map((stat, index) => (
+                        <div 
+                            key={stat.id}
+                            className={`transition-all duration-1000 delay-[${index * 200}ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                        >
                             <StatCard
-                                key={stat.id}
                                 value={stat.value}
                                 label={stat.label}
+                                icon={stat.icon}
+                                color={stat.color}
                                 startAnimation={isVisible}
                             />
-                        ))}
-                    </div>
-                </section>
-
-                {/* More placeholder content */}
-                <div className=""></div>
-            </main>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </div>
     );
 }
