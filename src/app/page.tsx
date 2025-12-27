@@ -20,7 +20,7 @@ export default function Home() {
   return (
    <div className="bg-gray-50">
     <HeroSection/>
-    <OfferBand/>
+    {/* <OfferBand/> */}
     <Numbers/>
        <NavigationBar/>
       <Services/>
@@ -28,7 +28,7 @@ export default function Home() {
       <CompareImage/>
       
       <Testimonial/>
-      <OfferBand/>
+      {/* <OfferBand/> */}
       <Gallery/>
       <Faq/>
 

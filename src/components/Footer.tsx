@@ -33,7 +33,7 @@ function Footer() {
           <h1 className="text-xl font-semibold text-[#647FBC] flex items-center gap-2">
             <i className="ri-sofa-fill"></i> Shagun Sofa Repair
           </h1>
-          <p className="text-sm mt-2">M3M Cosmopolitan Mall, Gurgaon</p>
+          <p className="text-sm mt-2"> Sector 63A Foji Market Near,Petrol Pump</p>
           <p className="text-sm mt-3 leading-relaxed">
             Revive, redesign, or upgrade – we bring life back to your sofas with expert repair and craftsmanship trusted since 2012.
           </p>
@@ -69,11 +69,11 @@ function Footer() {
           <h2 className="text-lg font-semibold text-[#647FBC]">Contact Us</h2>
           <ul className="mt-3 space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <i className="ri-map-pin-fill text-[#647FBC]" /> M3M Cosmopolitan Mall, Gurgaon
+              <i className="ri-map-pin-fill text-[#647FBC]" /> Sector 63A Foji Market Near,Petrol Pump
             </li>
             <li className="flex items-center gap-2">
-              <a href="tel:+919058304133" className="flex items-center gap-2 hover:text-[#DEB887]">
-                <i className="ri-phone-fill text-[#647FBC]" /> +91 9058304133
+              <a href="tel:+917428240037" className="flex items-center gap-2 hover:text-[#DEB887]">
+                <i className="ri-phone-fill text-[#647FBC]" /> +91 74282 40037
               </a>
             </li>
             <li className="flex items-center gap-2">

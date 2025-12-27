@@ -2,6 +2,58 @@
 @import 'remixicon/fonts/remixicon.css';
 
 
+/* ===============================
+   🚫 ABSOLUTE HORIZONTAL LOCK
+   =============================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  overscroll-behavior-x: none;
+  position: relative;
+  touch-action: pan-y;
+}
+
+/* Next.js root wrappers */
+#__next,
+[data-nextjs-scroll-focus-boundary] {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Block ALL layout containers */
+main,
+section,
+nav,
+header,
+footer,
+div {
+  max-width: 100vw;
+}
+
+/* Fix transform-based overflow (Framer Motion, sliders, drawers) */
+* {
+  box-sizing: border-box;
+}
+
+/* Kill vw-based overflow (very common bug) */
+[class*="w-screen"],
+[class*="vw"] {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Prevent iOS rubber-band sideways swipe */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
 @theme inline {
   --color-primary: #1F2937;
   --color-accent: #D5B895;
@@ -30,23 +82,7 @@
   }
 }
 
-@keyframes soft-ripple {
-    0% {
-      transform: scale(0.9);
-      opacity: 1; /* Start fully opaque for a 'charged' look */
-      border-width: 3px; /* Start thicker for a bigger impact */
-    }
-    70% {
-      transform: scale(1.8);
-      opacity: 0.2; /* Fade out more dramatically */
-      border-width: 1px;
-    }
-    100% {
-      transform: scale(2.2);
-      opacity: 0;
-      border-width: 0px;
-    }
-  }
+
 
   .smooth-ripple {
     animation: soft-ripple 2.5s ease-out infinite; /* Changed to ease-out for a faster start */

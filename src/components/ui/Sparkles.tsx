@@ -96,4 +96,4 @@ export const SparklesCore: React.FC<SparklesCoreProps> = ({
       )}
     </motion.div>
   )
-}
+} 

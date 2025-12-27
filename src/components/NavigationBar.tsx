@@ -1,17 +1,11 @@
-"use client"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-  }
-}
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 function NavigationBar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const menuItems = [
     { name: "Home", href: "#home" },
@@ -20,62 +14,36 @@ function NavigationBar() {
     { name: "Our Offerings", href: "#offerings" },
     { name: "Restoration", href: "#restoration-showcase" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
-  // Scroll detection
+  /* Scroll detection */
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // Conversion tracking
-  const gtag_report_conversion = (url?: string) => {
-    const callback = () => {
-      if (url) {
-        window.location.href = url
-      }
-    }
-
-    window.gtag?.("event", "conversion", {
-      send_to: "AW-17487093185/a9KWCObAqogbEMG7v5JB",
-      value: 15000.0,
-      currency: "INR",
-      event_callback: callback,
-    })
-
-    return false
-  }
+  /* Lock body scroll when mobile menu open */
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    // FIX: Added curly braces to ensure we return void, not the string "auto"
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
-    <div>
-      {/* Phone Button */}
-      <div className="fixed bottom-5 md:left-15 md:bottom-10 left-5 z-50">
-        <div className="relative w-14 h-14">
-          {/* Ripple Effects */}
-          <span
-            className="absolute left-1.5 top-1.5 w-11 h-11 rounded-full smooth-ripple"
-            style={{ borderColor: "#42A5F5", animationDelay: "0.4s" }}
-          ></span>
-          <span
-            className="absolute left-1.5 top-1.5 w-11 h-11 rounded-full smooth-ripple"
-            style={{ borderColor: "#42A5F5", animationDelay: "0.6s" }}
-          ></span>
-          <span
-            className="absolute left-1.5 top-1.5 w-11 h-11 rounded-full smooth-ripple"
-            style={{ borderColor: "#42A5F5", animationDelay: "1.0s" }}
-          ></span>
+    <>
+      {/* Spacer to avoid overlap */}
+      <div className="h-16" />
 
-          {/* Phone button */}
-          <a href="tel:+919058304133">
+      {/* Phone Button */}
+      <div className="fixed bottom-5 left-5 md:bottom-10 md:left-10 z-50">
+        <div className="relative w-14 h-14">
+          <span className="absolute inset-0 rounded-full smooth-ripple border-2 border-[#42A5F5]" />
+          <a href="tel:+917428240037">
             <button className="relative w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center">
-              <i className="text-2xl text-[#5682B1] ri-phone-fill"></i>
+              <i className="ri-phone-fill text-2xl text-[#5682B1]" />
             </button>
           </a>
         </div>
@@ -83,42 +51,50 @@ function NavigationBar() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919058304133?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
+        href="https://wa.me/917428240037?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
         target="_blank"
         rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 md:bottom-10 md:right-10 z-50"
       >
-        <button className="w-14 h-14 rounded-full bg-[#25D366] bottom-5 right-5 md:right-15 md:bottom-10 z-50 fixed">
-          <i className="text-4xl px-1 text-white ri-whatsapp-line"></i>
+        <button className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-xl">
+          <i className="ri-whatsapp-line text-3xl text-white" />
         </button>
       </a>
 
       {/* Navbar */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white border-b-2 border-blue-100 shadow-md" : "bg-transparent"
+        className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+          scrolled
+            ? "bg-white shadow-md border-b border-blue-100"
+            : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <h1 className={`text-xl  ${scrolled ? "text-[#647FBC]" : "text-white/80"}`}>
-                <i className="ri-sofa-fill"></i> Shagun Sofa
-                <br />
-                <p className={`text-black/80 text-[10px] ${scrolled ? "text-[#647FBC]" : "text-white/80"}`}>
-                  M3M Cosmopolitan Mall, Gurgaon
+            <div>
+              <h1
+                className={`text-xl ${
+                  scrolled ? "text-[#647FBC]" : "text-white/80"
+                }`}
+              >
+                <i className="ri-sofa-fill" /> Shagun Sofa
+                <p className="text-[10px]">
+                 Sector 63A Foji Market Near,Petrol Pump
                 </p>
               </h1>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden sm:flex space-x-8">
-              {menuItems.map((item, i) => (
+              {menuItems.map((item) => (
                 <Link
-                  key={i}
+                  key={item.name}
                   href={item.href}
-                  className={`transition-colors duration-300 ${
-                    scrolled ? "text-slate-600 hover:text-blue-500" : "text-white hover:text-yellow-200"
+                  className={`transition-colors ${
+                    scrolled
+                      ? "text-slate-600 hover:text-blue-500"
+                      : "text-white hover:text-yellow-200"
                   }`}
                 >
                   {item.name}
@@ -126,19 +102,20 @@ function NavigationBar() {
               ))}
             </div>
 
-            {/* Mobile Toggle Button */}
-            <div className="sm:hidden">
-              <button
-                onClick={() => setIsOpen(true)}
-                className={`text-[#647FBC] focus:outline-none ${scrolled ? "text-[#5682B1]" : "text-white/80"}`}
-                aria-label="Open menu"
-              >
-                <span className="text-2xl">&#9776;</span>
-              </button>
-            </div>
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsOpen((v) => !v)}
+              className={`sm:hidden text-2xl ${
+                scrolled ? "text-[#5682B1]" : "text-white"
+              }`}
+              aria-label="Toggle menu"
+            >
+              ☰
+            </button>
           </div>
         </div>
 
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <>
@@ -147,93 +124,38 @@ function NavigationBar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                // ✨ Changed: Faster backdrop transition
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.2 }}
                 className="fixed inset-0 bg-black/50 z-40"
                 onClick={() => setIsOpen(false)}
               />
 
-              {/* Mobile Menu Panel */}
+              {/* Drawer */}
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
-                // ✨ Changed: Replaced duration-based ease with a physics-based spring
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30,
-                }}
-                // ✨ Added: Performance optimization for smoother animation
-                className="fixed top-0 left-0 w-80 max-w-[85vw] h-screen bg-white shadow-2xl z-50 flex flex-col will-change-transform"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed top-0 left-0 w-[85vw] max-w-[320px] h-screen bg-white z-50 overflow-hidden will-change-transform"
               >
-                {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                  <div>
-                    <h2 className="text-xl font-bold text-[#647FBC] flex items-center gap-2">
-                      <i className="ri-sofa-fill"></i>
-                      Shagun Sofa
-                    </h2>
-                    <p className="text-sm text-gray-600 mt-1">M3M Cosmopolitan Mall, Gurgaon</p>
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                    aria-label="Close menu"
-                  >
-                    <span className="text-xl text-gray-600">&times;</span>
-                  </button>
-                </div>
-
-                {/* Navigation Links */}
-                <div className="flex-1 py-6">
-                  <nav className="space-y-2 px-6">
-                    {menuItems.map((item, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.07 + 0.1 }}
-                      >
-                        <Link
-                          href={item.href}
-                          className="flex items-center gap-3 py-3 px-4 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-[#647FBC] transition-all duration-200 group"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          <span className="w-2 h-2 rounded-full bg-[#647FBC] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                          <span className="text-lg font-medium">{item.name}</span>
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </nav>
-                </div>
-
-                {/* Contact Actions */}
-                <div className=" p-6 border-t border-gray-100 space-y-3">
-                  <a
-                    href="tel:+919058304133"
-                    className="flex items-center gap-3 w-full py-3 px-4 bg-[#647FBC] text-white rounded-lg hover:bg-[#5682B1] transition-colors"
-                  >
-                    <i className="ri-phone-fill text-lg"></i>
-                    <span className="font-medium">Call Now</span>
-                  </a>
-                  <a
-                    href="https://wa.me/919058304133?text=Hi%2C%20I%20need%20a%20sofa%20repair%20service"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full py-3 px-4 bg-[#25D366] text-white rounded-lg hover:bg-[#22c55e] transition-colors"
-                  >
-                    <i className="ri-whatsapp-line text-lg"></i>
-                    <span className="font-medium">WhatsApp</span>
-                  </a>
+                <div className="p-6 space-y-4">
+                  {menuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-3 text-lg text-gray-700 hover:text-[#647FBC]"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
               </motion.div>
             </>
           )}
         </AnimatePresence>
       </nav>
-    </div>
-  )
+    </>
+  );
 }
 
-export default NavigationBar
+export default NavigationBar;
